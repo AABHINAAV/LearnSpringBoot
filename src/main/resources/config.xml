@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="application.properties"/>
+
+    <!-- bean definitions here -->
+    <bean id="beanCreationXmlConstructorInjection"
+          class="org.example.a_learnConstructorInjection.BeanCreation_Xml_constructorInjection">
+        <constructor-arg ref="constuctorInjectionService"/>
+    </bean>
+    <bean id="constuctorInjectionService" class="org.example.a_learnConstructorInjection.ConstuctorInjectionService"/>
+
+    <bean id="beanCreationXmlSetterInjection"
+          class="org.example.b_learnSetterInjection.BeanCreation_Xml_setterInjection">
+        <property name="setterInjectionService" ref="setterInejectionService"/>
+    </bean>
+    <bean id="setterInejectionService" class="org.example.b_learnSetterInjection.SetterInjectionService"/>
+
+    <bean id="learnLiteralInjection" class="org.example.c_literalInjection.LearnLiteralInjection">
+        <property name="carName" value="city"/>
+        <property name="price" value="2000000.0"/>
+        <property name="brandName" value="${car.brandName}"/>
+    </bean>
+</beans>
