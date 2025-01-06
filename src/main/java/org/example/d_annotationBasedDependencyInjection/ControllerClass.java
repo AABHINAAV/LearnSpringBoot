@@ -7,8 +7,13 @@ import org.springframework.stereotype.Component;
 public class ControllerClass {
     private ServiceClass serviceClass;
 
+//    @Autowired
+//    public ControllerClass(ServiceClass serviceClass) {
+//        this.serviceClass = serviceClass;
+//    }
+
     @Autowired
-    public ControllerClass(ServiceClass serviceClass) {
+    public void setServiceClass(ServiceClass serviceClass) {
         this.serviceClass = serviceClass;
     }
 
