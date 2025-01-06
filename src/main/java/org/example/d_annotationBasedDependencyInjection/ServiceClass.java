@@ -1,4 +1,4 @@
-package org.example.d_annotationConstuctorInjection;
+package org.example.d_annotationBasedDependencyInjection;
 
 import org.springframework.stereotype.Component;
 
