@@ -8,15 +8,18 @@ import org.example.e_bean_annotation.c_setter_injection.ControllerClass_setter_i
 import org.example.e_bean_annotation.c_setter_injection.ServiceClass_setter_injection;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class BeansConfigurationClass {
     @Bean
+    @Scope("singleton") // default value // A single instance of the bean is created and shared across the entire application
     public ControllerClass_field_injection controllerClassFieldInjection() {
         return new ControllerClass_field_injection();
     }
 
-    @Bean
+    @Bean(initMethod = "initMethodFieldInjection", destroyMethod = "destroyMethodFieldInjection")
+    @Scope("prototype") // A new instance of the bean is created each time it is requested.
     public ServiceClass_field_injection serviceClassFieldInjection() {
         return new ServiceClass_field_injection();
     }
